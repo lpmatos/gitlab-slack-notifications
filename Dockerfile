@@ -14,8 +14,14 @@ LABEL maintainer="Lucca Pessoa da Silva Matos - luccapsm@gmail.com"
 
 WORKDIR /usr/src/app/
 
+RUN apk add --no-cache build-base make gcc
+
 COPY [ "./code", "." ]
 
-ENTRYPOINT []
+COPY [ "./Gemfile", "." ]
 
-CMD [ "sh" ]
+RUN bundle install
+
+ENTRYPOINT [ "ruby", "integration.rb" ]
+
+CMD [ "-p", "msp/helm/charts", "-c", "saas-msp" ]

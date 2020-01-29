@@ -1,7 +1,8 @@
 # Rakefile
-task default: [:install]
 
-task :install => [:uninstall] do
-    puts 'Installing packages'
-    `bundle`
+desc "Base Rakefile to Ruby."
+
+task :install do
+    puts "Installing packages..."
+    `bundle install`
 end
