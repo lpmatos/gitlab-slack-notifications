@@ -107,6 +107,8 @@ def gitlab_integration_slack(url, information)
     end
 end
 
+# =============================================================================
+
 def check_channel(options)
     return ternario(options["channel"], "SLACK_CHANNEL").include?("#") ? ternario(options["channel"], "SLACK_CHANNEL") : "#" << ternario(options["channel"], "SLACK_CHANNEL")
 end

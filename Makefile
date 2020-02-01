@@ -19,23 +19,6 @@ IMAGES_LIST:=$(shell docker images -a)
 build:
 	docker image build --no-cache -t service -f ${PATH_DOCKERFILE} ${CONTEXT_DOCKERFILE}
 
-# =============================================================================
-# DOCKER-COMPOSE
-# =============================================================================
-
-compose:
-	docker-compose up --build
-
-back:
-	docker-compose up --build -d
-
-down:
-	docker-compose down
-
-# =============================================================================
-# DOCKER SYSTEM
-# =============================================================================
-
 system:
 	docker system prune -af
 
@@ -50,3 +33,16 @@ stop:
 
 remove:
 	docker rm ${DOCKER_CONTAINER_LIST}
+
+# =============================================================================
+# DOCKER-COMPOSE
+# =============================================================================
+
+compose:
+	docker-compose up --build
+
+back:
+	docker-compose up --build -d
+
+down:
+	docker-compose down

@@ -38,6 +38,10 @@ build-iPhoneSimulator/
 /doc/
 /rdoc/
 
+.env
+
+Gemfile.lock
+
 ## Environment normalization:
 /.bundle/
 /vendor/bundle
