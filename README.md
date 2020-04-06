@@ -52,7 +52,7 @@
 <h1 align="center">GitLab Slack Notifications</h1>
 
 <p align="center">
-  <strong>Projeto para automatizar a integração do GitLab com o Slack para receber mensagens em canais específicos.</strong>
+  <strong>Projeto para automatizar a integração do GitLab com o Slack.</strong>
 </p>
 
 <p align="center">
