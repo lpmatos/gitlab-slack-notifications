@@ -1,6 +1,14 @@
+# =============================================================================
+# CLASS - CONFIGURATION
+# =============================================================================
+
 class Configuration
 
-  attr_reader :gitlab_endpoint, :gitlab_token, :gitlab_project
+  attr_reader :gitlab_endpoint,
+                :gitlab_token,
+                :gitlab_project,
+                :slack_channel,
+                :slack_webhook
 
   def initialize()
     @gitlab_endpoint = ENV["GITLAB_ENDPOINT"] ||= "https://git.stefanini.io/api/v4"

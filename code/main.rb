@@ -5,7 +5,7 @@ require_relative "./settings/log.rb"
 
 configuration = Configuration.new
 yml_reader = ReadYMLFile.new("values.yml")
-logger = Log.new().logger
+logger = Log.instance
 
 values = yml_reader.get_content
 

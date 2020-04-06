@@ -17,6 +17,8 @@ ENV HOME=/usr/src/code
 RUN set -ex && apk update && \
     apk add --no-cache --update build-base make gcc
 
+RUN mkdir -p /var/log && touch /var/log/file.log
+
 WORKDIR ${HOME}
 
 RUN gem install rake bundle
