@@ -34,8 +34,11 @@ class Log < Colors
 
   include Singleton
 
-  def initialize(file="/var/log/file.log")
-    @logger = Logger.new MultiIO.new(STDOUT, File.open(file, "a"))
+  attr_accessor :logger
+
+  def initialize(log_file="/var/log/file.log")
+    @logger = Logger.new MultiIO.new(STDOUT,
+      File.open(File.exist?(log_file) ? log_file : "/var/log/file.log", "a"))
     @logger.level = Logger::INFO
     @logger.formatter = proc do |severity, datetime, progname, msg|
       datetime = "[#{datetime.strftime('%Y-%m-%d %H:%M:%S')}]"

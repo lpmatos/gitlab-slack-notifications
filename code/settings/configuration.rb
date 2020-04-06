@@ -8,7 +8,8 @@ class Configuration
                 :gitlab_token,
                 :gitlab_project,
                 :slack_channel,
-                :slack_webhook
+                :slack_webhook,
+                :log_file
 
   def initialize()
     @gitlab_endpoint = ENV["GITLAB_ENDPOINT"]
@@ -16,6 +17,7 @@ class Configuration
     @gitlab_project = ENV["GITLAB_PROJECT"]
     @slack_channel = ENV["SLACK_CHANNEL"]
     @slack_webhook = ENV["SLACK_WEBHOOK"]
+    @log_file = ENV["LOG_FILE"]
   end
 
   def variables
@@ -24,7 +26,8 @@ class Configuration
       "gitlab_token" => @gitlab_token,
       "gitlab_project" => @gitlab_project,
       "slack_channel" => @slack_channel,
-      "slack_webhook" => @slack_webhook
+      "slack_webhook" => @slack_webhook,
+      "log_file" => @log_file
     }
   end
 

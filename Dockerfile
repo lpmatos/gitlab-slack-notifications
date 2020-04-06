@@ -12,7 +12,10 @@ LABEL maintainer="Lucca Pessoa da Silva Matos - luccapsm@gmail.com" \
         org.label-schema.slack="https://api.slack.com/" \
         org.label-schema.name="GitLab Slack Notifications"
 
-ENV HOME=/usr/src/code
+ENV HOME=/usr/src/code \
+    GITLAB_ENDPOINT=123 \
+    GITLAB_TOKEN=123 \
+    GITLAB_PROJECT=123
 
 RUN set -ex && apk update && \
     apk add --no-cache --update build-base make gcc
@@ -23,9 +26,9 @@ WORKDIR ${HOME}
 
 RUN gem install rake bundle
 
-COPY [ "./code", "." ]
-
 COPY [ "./values.yml", "." ]
+
+COPY [ "./code", "." ]
 
 RUN rake main:install
 
