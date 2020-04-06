@@ -76,8 +76,6 @@ Pull requests are welcome. If you'd like to support the work and buy me a ☕, I
 
 ## 🐋 Development with Docker
 
-![Alt text](docs/images/DOCKER.png?raw=true "Docker")
-
 Steps to build the Docker image.
 
 ### Build
