@@ -2,22 +2,24 @@
 # DECLARING VARIABLES
 # =============================================================================
 
-# DOCKERFILE
-
+# DOCKERFILE PATH
 PATH_DOCKERFILE=./Dockerfile
+
+# DOCKERFILE CONTENTX
 CONTEXT_DOCKERFILE=./
 
-# CONTAINERS AND IMAGES
-
+# CONTAINERS
 DOCKER_CONTAINER_LIST:=$(shell docker ps -aq)
-IMAGES_LIST:=$(shell docker images -a)
 
 # =============================================================================
-# DOCKER BUILD
+# DOCKER
 # =============================================================================
 
-build:
-	docker image build --no-cache -t service -f ${PATH_DOCKERFILE} ${CONTEXT_DOCKERFILE}
+build-back:
+	docker image build --no-cache -t notifications -f ${PATH_DOCKERFILE} ${CONTEXT_DOCKERFILE}
+
+build-front:
+	docker image build --no-cache -t notifications -f ${PATH_DOCKERFILE} ${CONTEXT_DOCKERFILE}
 
 system:
 	docker system prune -af

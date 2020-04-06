@@ -11,27 +11,27 @@ version: "3.7"
 services:
 
 # =============================================================================
-# GITLAB SLACK NOTIFICATION
+# NOTIFICATIONS
 # =============================================================================
 
-  gitlab-slack-notification:
+  notifications:
     container_name: ${CONTAINER_NAME}
     env_file: ./.env
     build:
       context: ./${PATH_DOCKERFILE}
       dockerfile: Dockerfile
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:
         max-size: "500k"
         max-file: "20"
-    restart: on-failure
     networks:
-      - service
+      - notifications
 
 # =============================================================================
 # NETWORKS
 # =============================================================================
 
 networks:
-  service:
+  notifications:

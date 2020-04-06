@@ -10,7 +10,7 @@ end
 
 # This is the namespace Block.
 namespace :main do
-    # A short description about the task.
+    # A short description about this task.
     desc "Base Rakefile to Ruby."
     # The task block.
     task :install do
