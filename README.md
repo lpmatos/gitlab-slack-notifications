@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="GitLab Slack Notifications" title="#gitlab_slack_notifications" src="docs/images/GITLAB.png" width="250px" />
+    <img alt="GitLab Slack Notifications" title="#gitlab_slack_notifications" src="https://eskadenia.se/Portals/Portal1/Upload/Block/Image/cutomer_notification_system.jpg" width="250px" />
 </h1>
 
 <h4 align="center">
