@@ -4,10 +4,9 @@
 
 ---
 gitlab:
-  endpoint: ""
-  token: ""
-  group: ""
-  project: ""
+  endpoint: "https://lucca.io/api/v4"
+  token: "1234"
+  project: "lucca/slack/integration"
 slack:
-  channel: ""
-  webhook: ""
+  channel: "slack"
+  webhook: "123"

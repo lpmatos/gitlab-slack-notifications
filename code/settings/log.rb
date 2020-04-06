@@ -4,6 +4,7 @@
 
 require "logger"
 require "singleton"
+require_relative "../utils/colors.rb"
 
 # =============================================================================
 # CLASS - MULTI IO
@@ -29,7 +30,7 @@ end
 # CLASS - LOG
 # =============================================================================
 
-class Log
+class Log < Colors
 
   include Singleton
 
@@ -37,7 +38,15 @@ class Log
     @logger = Logger.new MultiIO.new(STDOUT, File.open(file, "a"))
     @logger.level = Logger::INFO
     @logger.formatter = proc do |severity, datetime, progname, msg|
-      "#{severity}, [#{datetime.strftime('%Y-%m-%d %H:%M:%S')}], #{msg}"
+      datetime = "[#{datetime.strftime('%Y-%m-%d %H:%M:%S')}]"
+      case severity
+        when "INFO"
+          colorized_severity = self.class.colorize("#{severity}", "black", "green")
+          self.class.colorize("#{colorized_severity} - #{datetime} - #{msg}\n", "black", "green")
+        when "ERROR"
+          colorized_severity = self.class.colorize("#{severity}", "black", "red")
+          "#{colorized_severity} - #{datetime} - #{msg}\n"
+      end
     end
   end
 
@@ -45,15 +54,15 @@ class Log
     @logger.level = level
   end
 
-  def info(message)
+  def info(message, color=:green)
     @logger.info(message)
   end
 
-  def debug(message)
+  def debug(message, color=:green)
     @logger.debug(message)
   end
 
-  def error(message)
+  def error(message, color=:green)
     @logger.error(message)
   end
 

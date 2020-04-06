@@ -11,7 +11,7 @@ class Configuration
                 :slack_webhook
 
   def initialize()
-    @gitlab_endpoint = ENV["GITLAB_ENDPOINT"] ||= "https://git.stefanini.io/api/v4"
+    @gitlab_endpoint = ENV["GITLAB_ENDPOINT"]
     @gitlab_token = ENV["GITLAB_TOKEN"]
     @gitlab_project = ENV["GITLAB_PROJECT"]
     @slack_channel = ENV["SLACK_CHANNEL"]
